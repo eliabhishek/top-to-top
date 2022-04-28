@@ -1,6 +1,13 @@
 package com.alpha.toptotop.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Top {
+
+    @Id
+    private int id;
     private String colour;
     private String size;
     private String type;
@@ -29,6 +36,13 @@ public class Top {
         this.type = type;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     @Override
     public String toString() {
         return "Top{}";

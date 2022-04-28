@@ -32,8 +32,8 @@ public class InventoryManagementController {
         return adminService.getAllTops();
     }
 
-    @DeleteMapping(path = "/delete")
-    public String deleteTops(){
-        return adminService.deleteTops();
+    @DeleteMapping(path = "/delete/{id}")
+    public String deleteTops(@PathVariable ("id") String id){
+        return adminService.deleteTops(id);
     }
 }
