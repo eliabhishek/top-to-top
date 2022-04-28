@@ -5,6 +5,8 @@ import com.alpha.toptotop.services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping(path = "/admin")
 public class InventoryManagementController {
@@ -17,18 +19,18 @@ public class InventoryManagementController {
         return adminService.addNewTop(top);
     }
 
-    @PutMapping(path = "/update-top")
-    public String updateTop(Top top){
-        return adminService.addNewTop(top);
+    @PutMapping(path = "/update-top/{id}")
+    public String updateTop(@PathVariable ("id") String id, @RequestBody Top top){
+        return adminService.updateTop(id,top);
     }
 
     @GetMapping(path = "{id}")
-    public String getTop(@PathVariable ("id") int id ){
+    public Optional<Top> getTop(@PathVariable ("id") String id ){
         return adminService.getTop(id);
     }
 
     @GetMapping(path = "/tops")
-    public String getTops(){
+    public Iterable<Top> getTops(){
         return adminService.getAllTops();
     }
 

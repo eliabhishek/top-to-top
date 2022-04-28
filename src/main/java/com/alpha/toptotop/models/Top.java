@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Top {
 
     @Id
-    private int id;
+    private String id;
     private String colour;
     private String size;
     private String type;
@@ -36,11 +36,11 @@ public class Top {
         this.type = type;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     @Override
